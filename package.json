@@ -7,6 +7,8 @@
   ],
   "scripts": {
     "check": "biome check --write .",
+    "format": "npx ultracite@latest format",
+    "lint": "npx ultracite@latest lint",
     "dev": "turbo dev",
     "build": "turbo build",
     "check-types": "turbo check-types",
@@ -20,8 +22,16 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@biomejs/biome": "2.1.2",
+    "lefthook": "^1.12.2",
+    "lint-staged": "^16.1.2",
     "turbo": "^2.5.4",
-    "@biomejs/biome": "^2.0.0"
+    "ultracite": "5.0.47"
   },
-  "packageManager": "bun@1.2.4"
+  "packageManager": "bun@1.2.4",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "npx ultracite format"
+    ]
+  }
 }
