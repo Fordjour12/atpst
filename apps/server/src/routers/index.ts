@@ -10,5 +10,15 @@ export const appRouter = {
       user: context.session?.user,
     };
   }),
+  first: publicProcedure.handler(({ context }) => {
+    return {
+      user: context.session?.user,
+      data:{
+        id: context.session?.user?.id,
+        email: context.session?.user?.email,
+        name: context.session?.user?.name,
+      }
+    };
+  }),
 };
 export type AppRouter = typeof appRouter;

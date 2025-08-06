@@ -14,7 +14,7 @@
     const form = createForm(() => ({
         defaultValues: { email: "", password: "" },
         onSubmit: async ({ value }) => {
-            await authClient.signIn.email(
+            const usr = await authClient.signIn.email(
                 { email: value.email, password: value.password },
                 {
                     onSuccess: () => goto("/dashboard"),
@@ -26,6 +26,7 @@
                     },
                 },
             );
+            console.log(usr);
         },
         validators: {
             onSubmit: validationSchema,
